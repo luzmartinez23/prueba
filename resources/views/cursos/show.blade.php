@@ -4,7 +4,7 @@
     
 @section('content')
 
-<h1>Bienvenido al curso {{$curso}}</h1>
+<h1>Bienvenido al Curso {{$curso}}</h1>
     
 @endsection
 

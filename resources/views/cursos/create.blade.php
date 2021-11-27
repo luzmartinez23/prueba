@@ -4,6 +4,6 @@
     
 
 @section('content')
-<h1>En esta página podrás crear un curso</h1>
+<h1>En esta página podrás crear un Curso</h1>
     
 @endsection
