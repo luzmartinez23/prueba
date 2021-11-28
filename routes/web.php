@@ -29,8 +29,6 @@ Route::get('cursos/{curso}/{categoria}', function ($curso,$categoria=null) {
         return "Bienvenido al curso:$curso";
     }
 });  */
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
