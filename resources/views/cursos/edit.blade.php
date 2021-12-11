@@ -1,6 +1,7 @@
 <x-app-layout>
     <div style="width: 70%" class="mx-auto mt-4">
-        <form method="POST" action="{{route('materias.store')}}">
+        <form method="POST" action="{{route('materias.update', $materia->id)}}">
+            {{method_field('PATCH')}}
             @csrf
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
@@ -9,7 +10,7 @@
                 </label>
               </div>
               <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="nombre" type="text"  placeholder="Ingrese el Nombre de la Materia" value="" name="nombre">
+                <input value="{{$materia->nombre}}" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="nombre" type="text"  placeholder="Ingrese el Nombre de la Materia" value="" name="nombre">
               </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -19,7 +20,7 @@
                 </label>
               </div>
               <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="curso" name="curso" type="text" placeholder="Ingrese el Curso">
+                <input value="{{$materia->curso}}" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="curso" name="curso" type="text" placeholder="Ingrese el Curso">
               </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -29,14 +30,14 @@
                   </label>
                 </div>
                 <div class="md:w-2/3">
-                  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="grado" id="grado" type="text" placeholder="Ingrese el Grado">
+                  <input value="{{$materia->grado}}" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="grado" id="grado" type="text" placeholder="Ingrese el Grado">
                 </div>
               </div>
             <div class="md:flex md:items-center">
               <div class="md:w-1/3"></div>
               <div class="md:w-2/3">
                 <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded" type="submit">
-                  Guardar Registros
+                  Actualizar Registros
                 </button>
               </div>
             </div>

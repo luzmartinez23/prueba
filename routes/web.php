@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\ActividadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\TemaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +21,16 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/', HomeController::class);
   
-Route::get('cursos',[CursoController::class,'index'] );
+Route::resource('cursos', CursoController::class);
+Route::resource('materias', MateriaController::class);
+Route::put('materias/{id}', 'MateriaController@update');
+Route::resource('actividades', ActividadController::class);
+Route::put('actividades/{id}', 'ActividadController@update');
+Route::resource('temas', TemaController::class);
+Route::put('temas/{id}', 'TemaController@update');
+Route::resource('roles', RolController::class);
+Route::put('roles/{id}', 'RolControllerr@update');
 
-Route::get('cursos/create',[CursoController::class,'create'] );
-
-  Route::get('cursos/{curso}',[CursoController::class,'show']);
    /* 
 Route::get('cursos/{curso}/{categoria}', function ($curso,$categoria=null) {
     if($categoria){

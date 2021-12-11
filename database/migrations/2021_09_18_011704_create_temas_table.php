@@ -15,13 +15,11 @@ class CreateTemasTable extends Migration
     {
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('materia_id');
-            $table->unsignedBigInteger('profesor_id');
             $table->text('titulo_tema');
             $table->text('descripcion');
-            $table->boolean('estado')->default(false);
+            $table->enum('estado',['activo','desactivo'])->default('activo');
+            $table->unsignedBigInteger('materia_id');
             $table->foreign('materia_id')->references('id')->on('materias');
-            $table->foreign('profesor_id')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }

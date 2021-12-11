@@ -1,37 +1,45 @@
 <x-app-layout>
     <div style="width: 70%" class="mx-auto mt-4">
-        <form method="POST" action="{{route('materias.store')}}">
+        <form method="POST" action="{{route('actividades.store')}}">
             @csrf
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
                 <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                  Nombre de la Materia
+                  Título de la Actividad
                 </label>
               </div>
               <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="nombre" type="text"  placeholder="Ingrese el Nombre de la Materia" value="" name="nombre">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="titulo" type="text"  placeholder="Ingrese el Título de la Actividad" value="" name="titulo">
               </div>
             </div>
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
                 <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
-                  Curso
+                  Descripción
                 </label>
               </div>
               <div class="md:w-2/3">
-                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="curso" name="curso" type="text" placeholder="Ingrese el Curso">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="descripcion" name="descripcion" type="text" placeholder="Ingrese la Descripción">
               </div>
             </div>
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
                   <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-password">
-                    Grado
+                    Materia
                   </label>
                 </div>
                 <div class="md:w-2/3">
-                  <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="grado" id="grado" type="text" placeholder="Ingrese el Grado">
+                  <select name="materia_id" class="form-control" id="">
+                    <option value="">--Seleccione una opción--</option>
+                    @foreach ($materias as $materia)
+                        <option value="{{$materia->id}}">{{$materia->nombre}}</option>
+                    @endforeach
+                </select> 
                 </div>
-              </div>
+            </div>
+
+
+
             <div class="md:flex md:items-center">
               <div class="md:w-1/3"></div>
               <div class="md:w-2/3">

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rol extends Model
 {
     use HasFactory;
+    protected $fillable = ['nombre_rol'];
     public function usuario(){
         return $this->hasMany('App\Models\Usuario');
     }

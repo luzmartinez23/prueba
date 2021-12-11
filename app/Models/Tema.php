@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tema extends Model
 {
     use HasFactory;
+    protected $fillable = ['titulo_tema', 'descripcion', 'estado', 'materia_id', 'profesor_id'];
     public function materia(){
         return $this->belongsTo('App\Models\Materia');
     }
